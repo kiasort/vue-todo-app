@@ -1,48 +1,130 @@
-# ToDo
+# 📝 Vue Todo App
 
-This template should help get you started developing with Vue 3 in Vite.
+Современное приложение для управления задачами, созданное с использованием Vue 3, TypeScript и Pinia.
 
-## Recommended IDE Setup
+![Vue 3](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=flat&logo=vue.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.x-646CFF?style=flat&logo=vite&logoColor=white)
+![Pinia](https://img.shields.io/badge/Pinia-2.x-FFC233?style=flat&logo=pinia&logoColor=white)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Демо
 
-## Recommended Browser Setup
+**Живая версия:** [https://vue-todo-app-gold-seven.vercel.app/](https://vue-todo-app-gold-seven.vercel.app/)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## ✨ Функционал
 
-## Type Support for `.vue` Imports in TS
+- ✅ Добавление, редактирование и удаление задач
+- ✅ Отметка задач как выполненных
+- ✅ Фильтрация по статусу (Все / Активные / Завершенные)
+- ✅ Счётчик активных задач
+- ✅ Сохранение в localStorage (задачи не пропадают после перезагрузки)
+- ✅ Редактирование по двойному клику
+- ✅ Адаптивный дизайн
+- ✅ Плавные анимации
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## 🛠️ Технологии
 
-## Customize configuration
+- **Vue 3** — Composition API с `<script setup>`
+- **TypeScript** — строгая типизация
+- **Pinia** — управление состоянием
+- **Vue Router** — маршрутизация
+- **Vite** — быстрая сборка
+- **ESLint + Prettier** — качество кода
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 📦 Установка и запуск
 
-## Project Setup
+### Требования
 
-```sh
+- Node.js 18+
+- npm 10+
+
+### Команды
+
+```bash
+# Клонирование репозитория
+git clone https://github.com/kiasort/vue-todo-app.git
+
+# Установка зависимостей
+cd vue-todo-app
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Запуск dev-сервера
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+# Сборка для продакшена
 npm run build
+
+# Предпросмотр сборки
+npm run preview
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 📁 Структура проекта
 
-```sh
-npm run lint
+src/
+├── components/ # Vue компоненты
+│ ├── TodoInput.vue # Поле добавления задачи
+│ ├── TodoItem.vue # Отдельная задача
+│ ├── TodoList.vue # Список задач
+│ └── TodoFilter.vue # Фильтры
+├── stores/ # Pinia хранилища
+│ └── todoStore.ts # Store для задач
+├── types/ # TypeScript типы
+│ └── todo.ts # Интерфейсы Todo, FilterType
+├── assets/ # Стили
+│ └── theme.css # CSS переменные, тема
+├── App.vue # Главный компонент
+└── main.ts # Точка входа
+
+## 🎨 Особенности реализации
+
+### TypeScript интеграция
+
+```typescript
+interface Todo {
+  id: number
+  title: string
+  completed: boolean
+  createdAt: Date
+}
+
+type FilterType = 'all' | 'active' | 'completed'
 ```
+
+### Pinia Store (Setup Syntax)
+
+```typescript
+export const useTodoStore = defineStore('todo', () => {
+  const todos = ref<Todo[]>([])
+
+  const filteredTodos = computed(() => {
+    // ... фильтрация
+  })
+
+  function addTodo(title: string) {
+    // ... логика
+  }
+
+  return { todos, filteredTodos, addTodo }
+})
+```
+
+### Composition API
+
+Все компоненты используют современный Composition API с синтаксисом `<script setup>`.
+
+## 🔮 Планы развития
+
+- [ ] Добавить приоритеты задач
+- [ ] Категории и теги
+- [ ] Поиск по задачам
+- [ ] Темная тема
+- [ ] Экспорт/импорт задач
+- [ ] Backend интеграция (Firebase/Supabase)
+
+## 👨‍💻 Автор
+
+**Артём** — [GitHub](https://github.com/kiasort)
+
+## 📄 Лицензия
+
+MIT License - свободное использование
