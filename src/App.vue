@@ -17,12 +17,7 @@ import TodoFilter from './components/TodoFilter.vue'
       <TodoFilter />
     </main>
 
-    <footer class="app-footer footer">
-      <ul class="footer-list">
-        <li>Call me ❤️</li>
-        <li>+79173699267</li>
-      </ul>
-    </footer>
+
   </div>
 </template>
 
